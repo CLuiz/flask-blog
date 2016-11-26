@@ -67,12 +67,13 @@ def add():
         return redirect(url_for('main'))
     else:
         g.db = connect_db()
-        g.db.execute('insert into posts (titel, post) values (?,?)', [request.form['title'], request.form['post']])
+        g.db.execute('insert into posts (title, post) values (?,?)', [request.form['title'], request.form['post']])
         g.db.commit()
         g.db.close()
         flash('New entry was succesfully posted!')
         return redirect(url_for('main'))
-        
+
+
 
 
 if __name__=='__main__':
